@@ -11,8 +11,8 @@ public class MemberServiceTest {
 		count=0;
 	}
 	/**
-	 * 0.종료, 1. 회원가입, 2. 마이페이지,
-	 * 관리자기능 3. 회원정보, 4. 아이디찾기
+	 * 0.종료, 1. 회원가입, 2. 마이페이지,3. 비번수정. 4. 회원탈퇴, 5.아이디체크, 6.로그인
+	 * 관리자기능 1. 회원정보,2. 아이디찾기 3. 이름 검색. 4. 전체회원수
 	 * */
 	public String join(MemberBeanTest param) {
 		String msg = "회원가입 성공";
@@ -24,6 +24,10 @@ public class MemberServiceTest {
 	public String getMyPage(MemberBeanTest param) {
 		String msg = param.toString();
 		return msg;
+	}
+	public String changePw(MemberBeanTest param) {
+		String msg = "비밀번호 변경 성공";
+				return msg;
 	}
 	public String list() {
 		String msg = "";
@@ -40,5 +44,12 @@ public class MemberServiceTest {
 			}
 		}
 		return member;
+	}
+	public MemberBeanTest searchName() {
+		MemberBeanTest member = new MemberBeanTest();
+		return member;
+	}
+	public String countMember() {
+		return String.valueOf(count);
 	}
 }

@@ -10,6 +10,9 @@ public class MemberBean {
 	public String getPw() {
 		return pw;
 	}
+	public String getName() {
+		return name;
+	}
 	public String getBirth() {
 		return birth;
 	}

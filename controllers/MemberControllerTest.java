@@ -10,7 +10,16 @@ public class MemberControllerTest {
 		MemberServiceTest service = new MemberServiceTest();
 		MemberBeanTest member = null;
 		while(true) {
-			switch(JOptionPane.showInputDialog("0.종료  \n1.회원가입  \n2.마이페이지 \n3.회원정보 \n4.아이디찾기")){
+			switch(JOptionPane.showInputDialog("0.종료  \n"
+					+ "1.회원가입  \n"
+					+ "2.마이페이지 \n"
+					+ "3.회원정보 \n"
+					+ "4.아이디검색 \n"
+					+ "5.비번수정\n"
+					+ "6.아이디 중복체크\n"
+					+ "7.로그인\n"
+					+ "8.이름검색\n"
+					+ "9.전체회원수\n")){
 				case "0" : JOptionPane.showMessageDialog(null,"종료");
 					return;
 				case "1" : 
@@ -34,6 +43,20 @@ public class MemberControllerTest {
 					String serchId = JOptionPane.showInputDialog("id입력");
 					JOptionPane.showMessageDialog(null, service.findById(serchId));
 					break;
+				case "5" ://비번수정
+					spec = JOptionPane.showInputDialog("아이디, 현재비번, 새비번");
+					arr = spec.split(",");
+					member= new MemberBeanTest();
+					member.setId(arr[0]);
+					member.setPw(arr[1]+","+arr[2]);
+					JOptionPane.showMessageDialog(null, service.changePw(member));
+					break;
+				case"6" ://아이디 중복체크
+					spec = JOptionPane.showInputDialog("ID 입력");
+					JOptionPane.showMessageDialog(null, service.findById(spec));
+					break;
+				case "7" : //로그인
+					
 			}
 		}	
 	}
