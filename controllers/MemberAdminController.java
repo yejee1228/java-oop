@@ -2,11 +2,12 @@ package com.bitcamp.controllers;
 import javax.swing.JOptionPane;
 
 import com.bitcamp.domains.MemberBean;
-import com.bitcamp.services.MemberService;
+import com.bitcamp.serviceimpls.AdminServiceImpl;
+import com.bitcamp.services.MemberAdminService;
 public class MemberAdminController {
 
 	public static void main(String[] args) {
-		MemberService service = new MemberService();
+		MemberAdminService service = new AdminServiceImpl();
 		MemberBean member = new MemberBean();
 		while(true) {
 			switch(JOptionPane.showInputDialog("0.종료\n"

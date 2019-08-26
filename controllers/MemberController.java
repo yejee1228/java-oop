@@ -2,11 +2,12 @@ package com.bitcamp.controllers;
 import javax.swing.JOptionPane;
 
 import com.bitcamp.domains.MemberBean;
+import com.bitcamp.serviceimpls.MemberServiceImpl;
 import com.bitcamp.services.MemberService;
 public class MemberController {
 
 	public static void main(String[] args) {
-		MemberService service = new MemberService();
+		MemberService service = new MemberServiceImpl();
 		MemberBean member = null;
 		String []arr = null;
 		String temp = "";
