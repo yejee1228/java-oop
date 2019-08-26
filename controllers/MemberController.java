@@ -50,7 +50,8 @@ public class MemberController {
 				
 				break;
 			case "5" : 
-				
+				temp = JOptionPane.showInputDialog("id입력");
+				JOptionPane.showMessageDialog(null, service.existId(temp));
 				break;
 			case "6" : //로그인
 				temp = JOptionPane.showInputDialog("로그인  ID, PW");

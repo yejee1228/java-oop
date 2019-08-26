@@ -27,7 +27,17 @@ public class MemberServiceTest {
 	}
 	public String changePw(MemberBeanTest param) {
 		String msg = "비밀번호 변경 성공";
-				return msg;
+		String[] pw = param.getPw().split(",");
+		String oldPw = pw[0];
+		String newPw = pw[1];
+		for(int i = 0; i<count; i++) {
+			if(param.getId().equals(members[i].getId())
+					&&oldPw.equals(members[i].getPw())) {
+				members[i].setPw(newPw);
+				break;
+			}
+		}
+		return msg;
 	}
 	public String list() {
 		String msg = "";
@@ -51,5 +61,36 @@ public class MemberServiceTest {
 	}
 	public String countMember() {
 		return String.valueOf(count);
+	}
+	public String login(MemberBeanTest param) {
+		String msg = "로그인 실패";
+		for(int i = 0; i<count; i++) {
+			if(param.getId().equals(members[i].getId())
+					&& param.getPw().contentEquals(members[i].getPw())){
+				msg = "로그인 성공";
+				break;
+			}
+		}
+		return msg;
+	}
+	public MemberBeanTest[] findName(String name) {
+		int j = 0;
+		for(int i = 0; i<count; i++) {
+			if(name.equals(this.members[i].getName())) {
+				j++;
+			}
+		}
+		MemberBeanTest[] members= new MemberBeanTest[j];
+		j=0;
+		for(int i = 0; i<count; i++) {
+			if (name.equals(this.members[i].getName())) {
+				members [j] = this.members[j];
+				j++;
+				if(members.length == j) {
+					break;
+					}
+				}
+		}
+		return members;
 	}
 }

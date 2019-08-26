@@ -122,7 +122,7 @@ public class MemberService {
 	public MemberBean[] findByName(String name) {
 		int j = 0;
 		for(int i = 0; i<count; i++) {
-			if(name.contentEquals(this.members[i].getName())) {
+			if(name.equals(this.members[i].getName())) {
 				j++;
 			}
 		}

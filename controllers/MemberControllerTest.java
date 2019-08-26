@@ -56,7 +56,19 @@ public class MemberControllerTest {
 					JOptionPane.showMessageDialog(null, service.findById(spec));
 					break;
 				case "7" : //로그인
-					
+					spec = JOptionPane.showInputDialog("id, pw입력");
+					arr = spec.split(",");
+					String loginId = arr[0];
+					String loginPw = arr[1];
+					member = new MemberBeanTest();
+					member.setId(loginId);
+					member.setPw(loginPw);
+					JOptionPane.showMessageDialog(null, service.login(member));
+				case "8" : //이름검색
+					spec = JOptionPane.showInputDialog("이름입력");
+					JOptionPane.showMessageDialog(null, service.findName(spec));
+				case "9" : //전체 회원수
+					JOptionPane.showMessageDialog(null, service.countMember());
 			}
 		}	
 	}
